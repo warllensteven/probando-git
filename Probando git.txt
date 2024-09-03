@@ -379,3 +379,5 @@ Esperar Tecla
 Fin Segun
 Hasta Que opc == 6
 FinAlgoritmo
+
+Fin
