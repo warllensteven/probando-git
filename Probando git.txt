@@ -1,3 +1,381 @@
-Primera linea
-Modificando el archivo
-agregando tercera linea
+Proceso TrianguloPascalSencillo
+	Definir n, i, j, valor Como Entero
+	
+	Escribir "Ingrese el número de filas del Triángulo de Pascal: "
+	Leer n
+	
+	// Ciclo para cada fila del Triángulo de Pascal
+	Para i=0 Hasta n-1 Con Paso 1
+		valor = 1 // El primer valor en cada fila es siempre 1
+		// Ciclo para cada posición en la fila
+		Para j=0 Hasta i Con Paso 1
+			Escribir Sin Saltar valor, " "
+			// Actualiza el valor para la siguiente posición
+			valor = valor * (i - j) / (j + 1)
+		FinPara
+		Escribir "" // Nueva línea al final de cada fila
+	FinPara
+FinProceso
+
+Proceso TrianguloPascal
+	
+	Escribir "Ingrese el número de filas del Triángulo de Pascal: "
+	Leer n
+	
+	// Ciclo para cada fila del Triángulo de Pascal
+	Para i=0 Hasta n-1 Con Paso 1
+		valor = 1 // El primer valor en una fila siempre es 1
+		// Ciclo para cada posición en la fila
+		Para j=0 Hasta i Con Paso 1
+			Escribir Sin Saltar valor, " "
+			valor = valor * (i - j) / (j + 1)
+		FinPara
+		Escribir "" // Nueva línea al final de cada fila
+	FinPara
+FinProceso
+
+// Encuentra los primeros N numeros primos
+
+Algoritmo Primos
+	
+	Escribir "Ingrese la cantidad de numeros primos a mostrar:"
+	Leer cant_a_mostrar
+	
+	Escribir "1: 2" // el primer primo es 2, los otros son todos impares...
+	cant_mostrados <- 1
+	n<-3            // ...a partir de 3
+	
+	Mientras cant_mostrados<cant_a_mostrar Hacer
+		
+		es_primo <- Verdadero // pienso que es primo hasta que encuentre con que dividirlo
+		
+		Para i<-3 hasta rc(n) con paso 2 Hacer // ya sabemos que es impar
+			Si n MOD i = 0 entonces // si la division da exacta...
+				es_primo <- Falso  // ...ya no es primo
+			FinSi
+		FinPara
+		
+		Si es_primo Entonces
+			cant_mostrados <- cant_mostrados + 1
+			Escribir cant_mostrados, ": ",n
+		FinSi
+		
+		n <- n + 2 
+		
+	FinMientras
+	
+FinAlgoritmo
+
+
+Funcion resul <- Leibniz
+	obj = 3.14159265
+	suma = 0
+	n = 0
+	Repetir
+		suma = suma + ( ((-1) ^ n) / (2 * n + 1))
+		mipi = 4 * suma
+		n = n + 1
+		si n % 1000000 == 0 Entonces
+			Escribir n, ": ", obj, " <--> ", mipi
+		FinSi
+	Hasta Que obj == mipi
+	
+	resul = mipi
+FinFuncion
+
+Algoritmo calculo_pi
+	Escribir "PI = ", Leibniz
+FinAlgoritmo
+
+Funcion primo <- numPrimo ( n )
+	si n = 2 o n = 3 Entonces
+		Escribir "Es primo"
+	SiNo
+		Para i = 1 Hasta n-1 Con Paso 2 Hacer
+			mod1 = n % 1 = 0 y n % n = 0 y n % i <> 0 y n = 2
+		Fin Para
+		si	mod1 Entonces
+			Escribir "Es primo"
+		FinSi
+		Escribir "No es primo"
+	FinSi
+Fin Funcion
+
+Funcion secuencia <- secuenciaF ( n )
+	
+    a <- 0
+    b <- 1
+	
+    Escribir "Secuencia de Fibonacci:"
+    Para i <- 1 Hasta n Hacer
+		Escribir sin saltar a , " "
+        c <- a + b 
+        a <- b     
+        b <- c
+    FinPara
+	
+Fin Funcion
+
+Funcion resul <- areaTriangulo(b,h) 
+    area = (b * h) / 2
+	resul = area
+Fin Funcion
+
+Funcion resul <- areaCirculo(r) 
+    area = 3.1416 * r * r
+	resul = area
+Fin Funcion
+
+Algoritmo sin_titulo
+	Escribir "** MENU **"
+	Escribir "1. Área de un triangulo"
+	Escribir "2. Área de un círculo"
+	Escribir "3. N-ésimo término de Fibonacci"
+	Escribir "4. Los 100 primeros números primos"
+	Escribir "5. Cálculo del número PI"
+	Escribir "6. Salir"
+	Escribir ">> Ingrese una opción?"
+	Leer num
+	si num <> 6 Entonces
+		Limpiar Pantalla
+		Segun num Hacer
+			1:
+				Escribir "1. Área de un triangulo"
+				Escribir "Ingresal a base del triangulo en centimetros"
+				Leer b
+				Escribir "Ingresa la altura del triangulo en centimetros"
+				Leer h
+				Escribir "El area del triangulo es de: " , areaTriangulo(b,h) ,"cm^2"
+			2:
+				Escribir "2. Área de un círculo"
+				Escribir "Ingresa el radio del circulo en centimetros"
+				Leer r
+				Escribir "El area del circulo segun el radio que ingreso es de: " , areaCirculo(r) , "cm^2"
+			3:
+				Escribir "3. N-ésimo término de Fibonacci"
+				Leer n
+				Escribir secuenciaF(n)
+				
+			4:
+				Escribir "4. Los 100 primeros números primos"
+				
+			5:
+				Escribir "5. Cálculo del número PI"
+				
+			6:
+				Escribir "6. Salir"
+				
+			De Otro Modo:
+				Escribir ">>ERROR. Ingrese un numero de acuerdo a la opcion que desea"
+		Fin Segun
+	FinSi
+	
+FinAlgoritmo
+
+Proceso TablaDeVerdadNOT
+    Definir A Como Logico
+	
+    Escribir "A   NOT A"
+    Escribir "----------"
+	
+    A = Verdadero
+    Escribir A, " ", NOT A
+	
+    A = Falso
+    Escribir A, " ", NOT A
+FinProceso
+
+Proceso TablaDeVerdadOR
+    Definir A, B Como Logico
+	
+    Escribir "A   B   A OR B"
+    Escribir "----------------"
+	
+    A = Verdadero
+    B = Verdadero
+    Escribir A, " ", B, " ", A OR B
+	
+    A = Verdadero
+    B = Falso
+    Escribir A, " ", B, " ", A OR B
+	
+    A = Falso
+    B = Verdadero
+    Escribir A, " ", B, " ", A OR B
+	
+    A = Falso
+    B = Falso
+    Escribir A, " ", B, " ", A OR B
+FinProceso
+
+Proceso RaizCuadradaAproximada
+	
+    Escribir "Ingrese un número positivo para calcular su raíz cuadrada:"
+    Leer num
+	
+    // Inicializar la estimación
+    estimacion = num / 2
+    tolerancia = 0.00001  // Nivel de precisión deseado
+    iteraciones = 0
+	
+    Mientras (estimacion * estimacion) - num > tolerancia Hacer
+        estimacion = (estimacion + (num / estimacion)) / 2
+        iteraciones = iteraciones + 1
+    FinMientras
+	
+    Escribir "La raíz cuadrada aproximada de", estimacion
+	
+FinProceso
+
+Funcion fac <- factorial (num)
+si num > 1 Entonces
+f = 1
+para i = 1 Hasta num Hacer
+f = f * i
+FinPara
+fac = f
+SiNo
+si num == 1 o num == 0 Entonces
+fac = 1
+SiNo
+fac = -1
+
+FinSi
+FinSi
+FinFuncion
+
+funcion res <- combinatoria (n, k)
+res = factorial(n) / (factorial(k) * factorial(n-k))
+FinFuncion
+
+Algoritmo sin_titulo
+
+Escribir " Igrese la fila del triángulo de pascal que desee saber"
+leer n
+
+para i = 0 hasta n-1 Con Paso  1 Hacer
+
+
+para j = 0 hasta i con paso 1 hacer
+
+Escribir Sin Saltar " " combinatoria(i,j), " "
+
+FinPara
+
+Escribir " "
+
+FinPara
+
+FinAlgoritmo
+
+Funcion suma <- sumas(num1,num2)
+sumaNumeros = num1 + num2
+suma = sumaNumeros
+FinFuncion
+
+Funcion restaNums <- restas(num1,num2)
+resta = num1 - num2
+restaNums = resta
+FinFuncion
+
+Funcion multNums <- mults(num1,num2)
+mult = num1 * num2
+multNums = mult
+FinFuncion
+
+Funcion resultado <- divs(num1,num2)
+si num2 <> 0
+resultado = num1 / num2
+SiNo
+Escribir "Error,num2 no puede ser 0"
+FinSi
+FinFuncion
+
+
+Funcion resultado <- modulo(num1,num2)
+si num2 <> 0
+resultado = num1 % num2
+SiNo
+Escribir "Error,num2 no puede ser 0"
+FinSi
+FinFuncion
+
+Funcion menu
+Escribir "1 suma"
+Escribir "2 resta"
+Escribir "3 resta"
+Escribir "4 resta"
+Escribir "5 modulo"
+Escribir "6 salir"
+Escribir "Opocion?"
+FinFuncion
+
+Algoritmo sin_titulo
+Repetir
+Limpiar Pantalla
+menu
+Leer opc
+Segun opc Hacer
+1:
+Limpiar Pantalla
+Escribir "**1.Sumar**"
+Escribir "Ingrese un numero"
+Leer num1
+Escribir "Ingrese un numero"
+Leer num2
+Escribir "El resultado de la suma es " sumas(num1,num2)
+Escribir "Oprima cualquier tecla para salir"
+Esperar Tecla
+2:
+Limpiar Pantalla
+Escribir "**2.Resta**"
+Escribir "Ingrese un numero"
+Leer num1
+Escribir "Ingrese un numero"
+Leer num2
+Escribir "El resultado de la suma es " restas(num1,num2)
+Escribir "Oprima cualquier tecla para salir"
+Esperar Tecla
+3:
+Limpiar Pantalla
+Escribir "**3.Mults**"
+Escribir "Ingrese un numero"
+Leer num1
+Escribir "Ingrese un numero"
+Leer num2
+Escribir "El resultado de la suma es " mults(num1,num2)
+Escribir "Oprima cualquier tecla para salir"
+Esperar Tecla
+4:
+Limpiar Pantalla
+Escribir "**4.Division**"
+Escribir "Ingrese un numero"
+Leer num1
+Escribir "Ingrese un numero"
+Leer num2
+Escribir "El resultado de la suma es " divs(num1,num2)
+Escribir "Oprima cualquier tecla para salir"
+Esperar Tecla
+5:
+Limpiar Pantalla
+Escribir "**.Modulo**"
+Escribir "Ingrese un numero"
+Leer num1
+Escribir "Ingrese un numero"
+Leer num2
+Escribir "El resultado de la suma es " modulo(num1,num2)
+Escribir "Oprima cualquier tecla para salir"
+Esperar Tecla
+
+6:
+Limpiar Pantalla
+Escribir "Gracias por usar el software"
+Escribir "Adios"
+Esperar 5 Segundos
+De Otro Modo:
+Escribir "Opcion invalida"
+Escribir "Presione cualquier tecla para volver al menu"
+Esperar Tecla
+Fin Segun
+Hasta Que opc == 6
+FinAlgoritmo
